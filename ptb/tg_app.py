@@ -33,8 +33,7 @@ tg_app_builder = (
 if config.MODE == config.Mode.webhook:
     # Here we set updater to None because we want our custom webhook server to handle the updates
     # and hence we don't need an Updater instance
-    tg_app_builder = tg_app_builder.updater(None).build()
-
+    tg_app_builder = tg_app_builder.updater(None)
 
 tg_app = tg_app_builder.build()
 
