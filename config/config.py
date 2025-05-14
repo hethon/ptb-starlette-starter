@@ -21,8 +21,7 @@ if MODE == Mode.webhook:
     assert WEBHOOK_URL is not None, "'SECRET_TOKEN' is missing"
 
 
-BOT_TOKEN = os.getenv("BOT_TOKEN")
-assert BOT_TOKEN is not None, "'BOT_TOKEN' is missing"
+BOT_TOKEN = os.environ["BOT_TOKEN"]
 
 
 # developer's user id, used in report_error
