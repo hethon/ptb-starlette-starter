@@ -1,14 +1,14 @@
-from telegram import Update
+from typing import cast
 
 from config.config import DEV_USER_ID
 
 from .custom_context import CustomContext
 
 
-async def report_error(update: Update, context: CustomContext) -> None:
+async def report_error(update: object, context: CustomContext) -> None:
     """Report an error to the developer"""
 
-    exception = context.error
+    exception = cast(Exception, context.error)
 
     trace = []
     tb = exception.__traceback__
