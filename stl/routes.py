@@ -1,12 +1,12 @@
 from http import HTTPStatus
 
-from telegram import Update
 from starlette.requests import Request
-from starlette.responses import Response, PlainTextResponse
+from starlette.responses import PlainTextResponse, Response
+from telegram import Update
 
-from ptb.tg_app import tg_app
-from ptb.custom_updates import CustomUpdate
 import config.config as config
+from ptb.custom_updates import CustomUpdate
+from ptb.tg_app import tg_app
 
 
 async def telegram(request: Request) -> Response:

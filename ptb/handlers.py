@@ -1,8 +1,9 @@
 from telegram import Update
 
+from config.locale import Locale
+
 from .custom_context import CustomContext
 from .custom_updates import CustomUpdate
-from config.locale import Locale
 
 
 async def start(update: Update, context: CustomContext) -> None:

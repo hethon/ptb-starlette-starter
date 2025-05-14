@@ -1,25 +1,26 @@
+from telegram.constants import ParseMode
 from telegram.ext import (
     ApplicationBuilder,
+    CommandHandler,
     ContextTypes,
     Defaults,
-    PicklePersistence,
     PersistenceInput,
-    CommandHandler,
+    PicklePersistence,
     TypeHandler,
 )
-from telegram.constants import ParseMode
 
 import config.config as config
+
 from .custom_context import CustomContext
 from .custom_updates import CustomUpdate
-from .handlers import start, custom_update
 from .error_handler import report_error
-
+from .handlers import custom_update, start
 
 context_types = ContextTypes(context=CustomContext)
 defaults = Defaults(parse_mode=ParseMode.HTML, allow_sending_without_reply=True)
 persistence = PicklePersistence(
-    "persistence/persistence.pkl", PersistenceInput(chat_data=False, callback_data=False)
+    "persistence/persistence.pkl",
+    PersistenceInput(chat_data=False, callback_data=False),
 )
 tg_app_builder = (
     ApplicationBuilder()

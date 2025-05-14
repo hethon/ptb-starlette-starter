@@ -2,7 +2,6 @@ import logging
 
 from stl.starlette_app import starlette_app
 
-
 # Enable logging
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO

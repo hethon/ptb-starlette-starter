@@ -1,17 +1,16 @@
+from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import TypedDict
-from collections.abc import AsyncIterator
 
 from starlette.applications import Starlette
 from starlette.routing import Route
 
-from .routes import telegram, custom_updates, health
-from ptb.tg_app import tg_app
-from ptb.post_init import post_init
-from scripts.set_webhook import set_webhook
 import config.config as config
+from ptb.post_init import post_init
+from ptb.tg_app import tg_app
+from scripts.set_webhook import set_webhook
 
-
+from .routes import custom_updates, health, telegram
 
 
 class State(TypedDict):
@@ -41,7 +40,7 @@ async def lifespan_webhook(app: Starlette) -> AsyncIterator[State]:
 
 starlette_app = Starlette(
     routes=[
-        Route(f"/bot", telegram, methods=["POST"]),  # used for webhook mode
+        Route("/bot", telegram, methods=["POST"]),  # used for webhook mode
         Route("/healthcheck", health, methods=["GET"]),
         Route("/submitpayload", custom_updates, methods=["POST", "GET"]),
     ],
