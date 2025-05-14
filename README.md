@@ -1,4 +1,5 @@
-[![Code Style: Black](https://pypi-camo.freetls.fastly.net/fbfdc7754183ecf079bc71ddeabaf88f6cbc5c00/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f636f64652532307374796c652d626c61636b2d3030303030302e737667)](https://github.com/psf/black)
+![Ruff Formatter](https://img.shields.io/badge/style-ruff-000000.svg?logo=python&logoColor=white)
+
 
 # Python Telegram Bot Starter Kit with Starlette
 
