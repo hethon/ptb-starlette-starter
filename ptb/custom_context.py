@@ -10,7 +10,7 @@ from .custom_updates import CustomUpdate
 class CustomContext(CallbackContext[ExtBot, dict, dict, dict]):
     """
     Custom CallbackContext class that makes `user_data` available for updates of type
-    `CustomContext`.
+    `CustomUpdate`.
     """
 
     @classmethod
