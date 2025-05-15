@@ -1,5 +1,6 @@
 from telegram.constants import ParseMode
 from telegram.ext import (
+    AIORateLimiter,
     ApplicationBuilder,
     CommandHandler,
     ContextTypes,
@@ -28,6 +29,7 @@ tg_app_builder = (
     .context_types(context_types)
     .defaults(defaults)
     .persistence(persistence)
+    .rate_limiter(AIORateLimiter(max_retries=2))
 )
 
 if config.MODE == config.Mode.webhook:
