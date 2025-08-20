@@ -18,7 +18,7 @@ if MODE == Mode.webhook:
     assert SECRET_TOKEN is not None, "'SECRET_TOKEN' is missing"
 
     WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # used in set_webhook
-    assert WEBHOOK_URL is not None, "'SECRET_TOKEN' is missing"
+    assert WEBHOOK_URL is not None, "'WEBHOOK_URL' is missing"
 
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
