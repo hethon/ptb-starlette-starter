@@ -1,4 +1,6 @@
-from telegram import Update
+from typing import cast
+
+from telegram import Message, Update, User
 
 from config.locale import Locale
 
@@ -8,8 +10,8 @@ from .custom_updates import CustomUpdate
 
 async def start(update: Update, context: CustomContext) -> None:
     """Display a welcome message."""
-    full_name = update.effective_user.full_name
-    await update.message.reply_html(
+    full_name = cast(User, update.effective_user).full_name
+    await cast(Message, update.message).reply_html(
         text=Locale.get("welcome_message", full_name=full_name)
     )
 
