@@ -13,6 +13,9 @@ class Mode(str, Enum):
 
 MODE = Mode.polling
 
+SECRET_TOKEN = None
+WEBHOOK_URL = None
+
 if MODE == Mode.webhook:
     SECRET_TOKEN = os.getenv("SECRET_TOKEN")  # used in set_webhook
     assert SECRET_TOKEN is not None, "'SECRET_TOKEN' is missing"
