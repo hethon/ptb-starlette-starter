@@ -45,10 +45,13 @@ ptb-starlette-starter
 
 ### Installation
 
+1. cd into your project:
+   ```bash
+   cd my-project
+   ```
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ptb-starlette-starter.git
-   cd ptb-starlette-starter
+   git clone https://github.com/hethon/ptb-starlette-starter.git .
    ```
 
 2. Install dependencies:
@@ -61,7 +64,7 @@ ptb-starlette-starter
    cp .env.example .env
    ```
 
-4. Run the webserver:
+4. Run the webserver with uvicorn or any ASGI server:
    ```bash
    uvicorn run:app
    ```
@@ -79,12 +82,11 @@ This starter allows you to easily switch between polling and webhook modes. In t
 
 ## Use Cases for Running PTB with Starlette
 
-Here’s why combining `python-telegram-bot` with Starlette is awesome:
+- If you are building a [Telegram miniapp](https://core.telegram.org/bots/webapps), this setup lets you handle both your bot and miniapp with a single backend, making communication between them fast and easy.
 
-1. **Telegram Miniapps**: Want to build a [Telegram miniapp](https://core.telegram.org/bots/webapps)? This setup lets you handle both your bot and miniapp with a single backend, making communication between them super smooth.
-2. **Telegram Games**: If your bot uses [Telegram's game platform](https://core.telegram.org/bots/games), running your bot and web server together simplifies the whole process of keeping them in sync.
-3. **Web Extensions**: Thinking about extending your bot’s features to a website? Maybe a dashboard to track stats or control the bot? This is the perfect way to do it.
-4. **Endless Possibilities**: From integrating external APIs to hosting RESTful or GraphQL endpoints, running PTB with Starlette opens the door to countless creative solutions.
+- If your bot uses [Telegram's game platform](https://core.telegram.org/bots/games), running your bot and web server together simplifies the whole process of keeping them in sync.
+
+- If you think about monitoring/controlling your bot's state via a website, this setup makes it easy as you can simply create endpoints to do that.
 
 ---
 
