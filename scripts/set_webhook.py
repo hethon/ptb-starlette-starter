@@ -1,6 +1,6 @@
 from telegram import Update
 
-import config
+import config.config as config
 from ptb.tg_app import tg_app
 
 
