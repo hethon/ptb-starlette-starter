@@ -11,17 +11,12 @@ class Mode(str, Enum):
     webhook = 2
 
 
-MODE = Mode.polling
-
-SECRET_TOKEN = None
-WEBHOOK_URL = None
-
-if MODE == Mode.webhook:
-    SECRET_TOKEN = os.getenv("SECRET_TOKEN")  # used in set_webhook
-    assert SECRET_TOKEN is not None, "'SECRET_TOKEN' is missing"
-
-    WEBHOOK_URL = os.getenv("WEBHOOK_URL")  # used in set_webhook
-    assert WEBHOOK_URL is not None, "'WEBHOOK_URL' is missing"
+MODE = Mode.webhook
+try:
+    SECRET_TOKEN = os.environ["SECRET_TOKEN"]
+    WEBHOOK_URL = os.environ["WEBHOOK_URL"]
+except KeyError:
+    MODE = Mode.polling
 
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]

@@ -74,12 +74,7 @@ This project uses UV for dependency managment.
 
 ## Switching Between Polling and Webhook Modes
 
-This starter allows you to easily switch between polling and webhook modes. In the `config/config.py` file, modify the `MODE` constant to set your preferred mode:
-
-- `MODE = Mode.polling`: Uses long polling to fetch updates.
-- `MODE = Mode.webhook`: Configures the bot to use webhooks.
-
----
+The project runs in webhook mode if WEBHOOK_URL is set and not commented out in .env; otherwise, it defaults to polling mode.
 
 ## Use Cases for Running PTB with Starlette
 
