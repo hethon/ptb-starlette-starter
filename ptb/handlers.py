@@ -12,18 +12,8 @@ async def start(update: Update, context: CustomContext) -> None:
     """Display a welcome message."""
     full_name = cast(User, update.effective_user).full_name
     await cast(Message, update.message).reply_html(
-        text=Locale.get("welcome_message", full_name=full_name)
+        text=Locale.get("welcome_message", lang="en", full_name=full_name)
     )
-
-    # to reply in French you would use
-    # await cast(Message, update.message).reply_html(
-    #     text=Locale.get("welcome_message", lang="fr", full_name=full_name)
-    # )
-
-    # to reply in Amharic you would use
-    # await cast(Message, update.message).reply_html(
-    #     text=Locale.get("welcome_message", lang="am", full_name=full_name)
-    # )
 
 
 async def custom_update(update: CustomUpdate, context: CustomContext) -> None:
