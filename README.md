@@ -45,18 +45,17 @@ ptb-starlette-starter
 
 ### Installation
 
-1. cd into your project:
+This project uses UV for dependency managment.
+
+1. create your project directory and cd into it:
    ```bash
+   mkdir my-project
    cd my-project
    ```
-1. Clone the repository:
+
+2. Clone this repository:
    ```bash
    git clone https://github.com/hethon/ptb-starlette-starter.git .
-   ```
-
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
    ```
 
 3. Set up the `.env` file by copying `.env.example` and filling in the necessary variables:
@@ -64,10 +63,12 @@ ptb-starlette-starter
    cp .env.example .env
    ```
 
-4. Run the webserver with uvicorn or any ASGI server:
+4. Run the webserver with uvicorn or any ASGI server of your choice:
    ```bash
-   uvicorn run:app
+   uv run -- uvicorn main:app
    ```
+
+   This will create our virtual environment and install dependencies when run for the first time.
 
 ---
 
