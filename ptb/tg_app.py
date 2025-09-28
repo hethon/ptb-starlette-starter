@@ -5,8 +5,6 @@ from telegram.ext import (
     CommandHandler,
     ContextTypes,
     Defaults,
-    PersistenceInput,
-    PicklePersistence,
     TypeHandler,
 )
 
@@ -19,16 +17,12 @@ from .handlers import custom_update, start
 
 context_types = ContextTypes(context=CustomContext)
 defaults = Defaults(parse_mode=ParseMode.HTML, allow_sending_without_reply=True)
-persistence = PicklePersistence(
-    "persistence/persistence.pkl",
-    PersistenceInput(chat_data=False, callback_data=False),
-)
+
 tg_app_builder = (
     ApplicationBuilder()
     .token(config.BOT_TOKEN)
     .context_types(context_types)
     .defaults(defaults)
-    .persistence(persistence)
     .rate_limiter(AIORateLimiter(max_retries=2))
 )
 

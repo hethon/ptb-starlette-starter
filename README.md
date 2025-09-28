@@ -63,12 +63,18 @@ This project uses UV for dependency managment.
    cp .env.example .env
    ```
 
-4. Run the webserver with uvicorn or any ASGI server of your choice:
+4. Run the Alembic migration script
+   ```bash
+   uv run -- alembic upgrade head
+   ```
+
+   - The first time you run a uv run command, uv will automatically create a virtual environment and install dependencies.
+   - `alembic upgrade head` will set up the demo database schema (create the demo table) so the bot can start working right away.
+
+5. Run the webserver with uvicorn or any ASGI server of your choice:
    ```bash
    uv run -- uvicorn main:app
    ```
-
-   This will create our virtual environment and install dependencies when run for the first time.
 
 ---
 
