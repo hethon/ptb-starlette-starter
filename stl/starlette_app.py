@@ -1,7 +1,8 @@
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from typing import TypedDict
+from typing import TypedDict, cast
 
+from telegram.ext import Updater
 from starlette.applications import Starlette
 from starlette.routing import Route
 
@@ -22,9 +23,9 @@ async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:
     async with tg_app:
         await post_init(tg_app)
         await tg_app.start()
-        await tg_app.updater.start_polling()
-        yield
-        await tg_app.updater.stop()
+        await cast(Updater, tg_app.updater).start_polling()
+        yield {}
+        await cast(Updater, tg_app.updater).stop()
         await tg_app.stop()
 
 
@@ -34,7 +35,7 @@ async def lifespan_webhook(app: Starlette) -> AsyncIterator[State]:
     async with tg_app:
         await post_init(tg_app)
         await tg_app.start()
-        yield
+        yield {}
         await tg_app.stop()
 
 
