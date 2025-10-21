@@ -4,4 +4,5 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": "explicit"
     },
+    "python.analysis.autoFormatStrings": true,
 }
