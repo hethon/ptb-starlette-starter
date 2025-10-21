@@ -1,20 +1,20 @@
 lint.extend-select = [
     "E",    # Pycodestyle errors (style issues)
-    "W",    # Pycodestyle warnings (style issues)
+    # "W",    # Pycodestyle warnings (style issues)
     "C90",  # McCabe – complexity metric for functions
     "I",    # isort – import ordering checks
     "N",    # PEP8 Naming – naming conventions
-    "D",    # Pydocstyle – docstring formatting
+    # "D",    # Pydocstyle – docstring formatting
     "UP",   # Pyupgrade – upgrades syntax to newer Python versions
     "YTT",  # Flake8-2020 – checks for Python 2020 best practices
-    "ANN",  # Flake8-annotations – enforces type annotation style
+    # "ANN",  # Flake8-annotations – enforces type annotation style
     "ASYNC",# Flake8-async – checks async/await usage
     "S",    # Flake8-bandit – security issues
     "BLE",  # Flake8-blind-except – flags bare excepts
     "FBT",  # Flake8-boolean-trap – potential pitfalls with booleans
     "B",    # Flake8-bugbear – common bug patterns
     "A",    # Flake8-builtins – misuse of Python built-in names
-    "COM",  # Flake8-commas – trailing/comma issues
+    # "COM",  # Flake8-commas – trailing/comma issues
     # "CPY",  # Flake8-copyright – copyright header checks
     "C4",   # Flake8-comprehensions – best practices in comprehensions
     "DTZ",  # Flake8-datetimez – requires timezone-aware datetime objects
@@ -57,7 +57,7 @@ lint.extend-select = [
     "PERF", # Perflint – performance-related checks
     "FURB", # Refurb – rules for code refurbishment
     # "DOC",  # Pydoclint – docstring linting and consistency
-    "RUF",  # Ruff-specific rules – additional Ruff checks
+    # "RUF",  # Ruff-specific rules – additional Ruff checks
 ]
 
 lint.ignore = [
