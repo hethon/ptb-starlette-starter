@@ -4,7 +4,7 @@ from starlette.requests import Request
 from starlette.responses import PlainTextResponse, Response
 from telegram import Update
 
-import config.config as config
+from config import config
 from ptb.custom_updates import CustomUpdate
 from ptb.tg_app import tg_app
 

@@ -8,7 +8,7 @@ from .custom_context import CustomContext
 async def report_error(update: object, context: CustomContext) -> None:
     """Report an error to the developer"""
 
-    exception = cast(Exception, context.error)
+    exception = cast("Exception", context.error)
 
     trace = []
     tb = exception.__traceback__

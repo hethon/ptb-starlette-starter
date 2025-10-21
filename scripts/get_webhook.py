@@ -1,8 +1,8 @@
-'''run this file to get information about webhook'''
+"""run this file to get information about webhook"""
 import os
-from telegram import Bot, WebhookInfo
-from dotenv import load_dotenv
 
+from dotenv import load_dotenv
+from telegram import Bot, WebhookInfo
 
 load_dotenv()
 

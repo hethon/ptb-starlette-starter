@@ -2,11 +2,11 @@ from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
 from typing import TypedDict, cast
 
-from telegram.ext import Updater
 from starlette.applications import Starlette
 from starlette.routing import Route
+from telegram.ext import Updater
 
-import config.config as config
+from config import config
 from ptb.post_init import post_init
 from ptb.tg_app import tg_app
 from scripts.set_webhook import set_webhook
@@ -23,9 +23,9 @@ async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:
     async with tg_app:
         await post_init(tg_app)
         await tg_app.start()
-        await cast(Updater, tg_app.updater).start_polling()
+        await cast("Updater", tg_app.updater).start_polling()
         yield {}
-        await cast(Updater, tg_app.updater).stop()
+        await cast("Updater", tg_app.updater).stop()
         await tg_app.stop()
 
 
@@ -46,6 +46,6 @@ starlette_app = Starlette(
         Route("/submitpayload", custom_updates, methods=["POST", "GET"]),
     ],
     lifespan=(
-        lifespan_webhook if config.MODE == config.Mode.webhook else lifespan_polling
+        lifespan_webhook if config.Mode.webhook == config.MODE else lifespan_polling
     ),
 )

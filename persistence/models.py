@@ -1,4 +1,3 @@
-from typing import Optional
 
 from sqlalchemy.orm import Mapped, mapped_column
 
@@ -10,7 +9,7 @@ class User(Model):
 
     tg_id: Mapped[int] = mapped_column(primary_key=True)
     tg_name: Mapped[str]
-    tg_username: Mapped[Optional[str]]
+    tg_username: Mapped[str | None]
 
     def __repr__(self) -> str:
         return f"<User('{self.tg_id}', '{self.tg_name}')>"

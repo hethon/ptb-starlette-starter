@@ -1,10 +1,9 @@
-'''run this file to set about webhook url'''
-from telegram import Update
+"""run this file to set about webhook url"""
 from dotenv import load_dotenv
+from telegram import Update
 
-import config.config as config
+from config import config
 from ptb.tg_app import tg_app
-
 
 load_dotenv()
 
