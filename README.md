@@ -38,7 +38,7 @@ ptb-starlette-starter
 │   └── set_webhook.py     # Script to set webhooks
 ├── .env.example           # Example environment file
 ├── requirements.txt       # Python dependencies
-└── run.py                 # Main entry point
+└── main.py                # Main entry point
 ```
 
 ---
