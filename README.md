@@ -10,7 +10,7 @@ I often use this structure when building web-powered Telegram bots. After reusin
 
 - **Error Reporting**: Reports Telegram bot exceptions to the developer as a direct message.
 - **Localization**: Support for multiple languages with a simple setup.
-- **Persistence**: Preconfigured to use a pickled persistence object.
+- **Persistence**: Preconfigured to use a Sqlalchemy 2.0.
 - **Webhook and Polling Modes**: Easily switch between polling and webhook modes by editing the `MODE` constant in `config/config.py`.
 
 ---
