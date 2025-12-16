@@ -8,8 +8,8 @@ load_dotenv()
 
 
 async def get_webhook() -> WebhookInfo:
-    TOKEN = os.environ["BOT_TOKEN"]
-    bot = Bot(TOKEN)
+    token = os.environ["BOT_TOKEN"]
+    bot = Bot(token)
     async with bot:
         response = await bot.get_webhook_info()
         return response
