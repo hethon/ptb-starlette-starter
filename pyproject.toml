@@ -13,3 +13,7 @@ dependencies = [
     "starlette==0.45.1",
     "uvicorn==0.34.0",
 ]
+
+[tool.mypy]
+ignore_missing_imports = true
+disable_error_code = ["union-attr"]
