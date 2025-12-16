@@ -19,7 +19,7 @@ class State(TypedDict):
 
 
 @asynccontextmanager
-async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:
+async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:  # noqa: ARG001
     async with tg_app:
         await post_init(tg_app)
         await tg_app.start()
@@ -30,7 +30,7 @@ async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:
 
 
 @asynccontextmanager
-async def lifespan_webhook(app: Starlette) -> AsyncIterator[State]:
+async def lifespan_webhook(app: Starlette) -> AsyncIterator[State]:  # noqa: ARG001
     await set_webhook()
     async with tg_app:
         await post_init(tg_app)

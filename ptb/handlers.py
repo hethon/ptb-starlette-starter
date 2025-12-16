@@ -10,7 +10,7 @@ from .custom_context import CustomContext
 from .custom_updates import CustomUpdate
 
 
-async def start(update: Update, context: CustomContext) -> None:
+async def start(update: Update, context: CustomContext) -> None:  # noqa: ARG001
     """Display a welcome message."""
     user = cast("User", update.effective_user)
     user_id = user.id

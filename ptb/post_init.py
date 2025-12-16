@@ -1,7 +1,7 @@
 from telegram.ext import Application
 
 
-async def post_init(application: Application) -> None:
+async def post_init(application: Application) -> None:  # noqa: ARG001
     """initialize things"""
     # for example you can set default values to bot_data
     # application.bot_data.setdefault("some_key", "some_value")
