@@ -1,10 +1,9 @@
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
-from typing import TypedDict, cast
+from typing import TypedDict
 
 from starlette.applications import Starlette
 from starlette.routing import Route
-from telegram.ext import Updater
 
 from config import config
 from ptb.post_init import post_init
@@ -23,9 +22,9 @@ async def lifespan_polling(app: Starlette) -> AsyncIterator[State]:  # noqa: ARG
     async with tg_app:
         await post_init(tg_app)
         await tg_app.start()
-        await cast("Updater", tg_app.updater).start_polling()
+        await tg_app.updater.start_polling()
         yield {}
-        await cast("Updater", tg_app.updater).stop()
+        await tg_app.updater.stop()
         await tg_app.stop()
 
 

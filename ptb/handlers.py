@@ -1,6 +1,4 @@
-from typing import cast
-
-from telegram import Message, Update, User
+from telegram import Update
 
 from config.locale import Locale
 from persistence.db import Session
@@ -12,7 +10,7 @@ from .custom_updates import CustomUpdate
 
 async def start(update: Update, context: CustomContext) -> None:  # noqa: ARG001
     """Display a welcome message."""
-    user = cast("User", update.effective_user)
+    user = update.effective_user
     user_id = user.id
     name = user.full_name
     username = user.username
@@ -22,7 +20,7 @@ async def start(update: Update, context: CustomContext) -> None:  # noqa: ARG001
         if not user:
             session.add(DBUser(tg_id=user_id, tg_name=name, tg_username=username))
 
-    await cast("Message", update.message).reply_html(
+    await update.message.reply_html(
         text=Locale.get("welcome_message", lang="en", full_name=name)
     )
 

@@ -1,5 +1,3 @@
-from typing import cast
-
 from config.config import DEV_USER_ID
 
 from .custom_context import CustomContext
@@ -8,7 +6,7 @@ from .custom_context import CustomContext
 async def report_error(update: object, context: CustomContext) -> None:
     """Report an error to the developer"""
 
-    exception = cast("Exception", context.error)
+    exception = context.error
 
     trace = []
     tb = exception.__traceback__
