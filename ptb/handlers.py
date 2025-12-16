@@ -16,7 +16,7 @@ async def start(update: Update, context: CustomContext) -> None:  # noqa: ARG001
     user_id = user.id
     name = user.full_name
     username = user.username
-    
+
     async with Session() as session, session.begin():
         user = await session.get(DBUser, user_id)
         if not user:

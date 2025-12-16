@@ -1,3 +1,1 @@
-en = {
-	"welcome_message": """👋 Hello {full_name}, Welcome!"""
-}
+en = {"welcome_message": """👋 Hello {full_name}, Welcome!"""}

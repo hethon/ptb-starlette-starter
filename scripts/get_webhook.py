@@ -1,4 +1,5 @@
 """run this file to get information about webhook"""
+
 import os
 
 from dotenv import load_dotenv
@@ -17,5 +18,6 @@ async def get_webhook() -> WebhookInfo:
 
 if __name__ == "__main__":
     import asyncio
+
     result = asyncio.run(get_webhook())
     print(result)

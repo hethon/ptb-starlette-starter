@@ -4,11 +4,7 @@ from .fr import fr
 
 
 class Locale:
-    data = {
-        "en": en, 
-        "am": am, 
-        "fr": fr
-    }
+    data = {"en": en, "am": am, "fr": fr}
 
     @staticmethod
     def get(key, lang="en", **kwargs):
