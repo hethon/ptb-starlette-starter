@@ -24,9 +24,9 @@ async def telegram(request: Request) -> Response:
 
 async def custom_updates(request: Request) -> PlainTextResponse:
     """Handle incoming custom updates by putting them into the `update_queue`"""
-    user_id = request.query_params.get("user_id")
+    user_id_str = request.query_params.get("user_id", "")
     payload = request.query_params.get("payload")
-    if not user_id:
+    if not user_id_str:
         return PlainTextResponse(
             "user_id is missing", status_code=HTTPStatus.BAD_REQUEST
         )
@@ -37,7 +37,7 @@ async def custom_updates(request: Request) -> PlainTextResponse:
         )
 
     try:
-        user_id = int(user_id)
+        user_id = int(user_id_str)
     except ValueError:
         return PlainTextResponse(
             "user_id must be an integer", status_code=HTTPStatus.BAD_REQUEST

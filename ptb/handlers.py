@@ -16,8 +16,8 @@ async def start(update: Update, context: CustomContext) -> None:  # noqa: ARG001
     username = user.username
 
     async with Session() as session, session.begin():
-        user = await session.get(DBUser, user_id)
-        if not user:
+        db_user = await session.get(DBUser, user_id)
+        if not db_user:
             session.add(DBUser(tg_id=user_id, tg_name=name, tg_username=username))
 
     await update.message.reply_html(
