@@ -31,6 +31,13 @@ if config.Mode.webhook == config.MODE:
     # and hence we don't need an Updater instance
     tg_app_builder = tg_app_builder.updater(None)
 
+if config.USE_TEST_SERVER:
+    tg_app_builder = (
+        tg_app_builder.token(config.TEST_SERVER_BOT_TOKEN)
+        .base_url("https://api.telegram.org/bot{token}/test")
+        .base_file_url("https://api.telegram.org/file/bot{token}/test")
+    )
+
 tg_app = tg_app_builder.build()
 
 tg_app.add_handler(CommandHandler("start", start))
