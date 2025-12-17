@@ -30,6 +30,6 @@ if USE_TEST_SERVER and not TEST_SERVER_BOT_TOKEN:
 
 
 # developer's user id, used in report_error
-DEV_USER_ID = int(os.environ["DEV_CHAT_ID"])
+ERROR_LOG_CHAT_ID = int(os.environ["ERROR_LOG_CHAT_ID"])
 
 DATABASE_URL = os.environ["DATABASE_URL"]

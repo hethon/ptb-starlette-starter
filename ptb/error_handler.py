@@ -1,4 +1,4 @@
-from config.config import DEV_USER_ID
+from config.config import ERROR_LOG_CHAT_ID
 
 from .custom_context import CustomContext
 
@@ -25,7 +25,7 @@ async def report_error(update: object, context: CustomContext) -> None:
     )
 
     await context.bot.send_message(
-        chat_id=DEV_USER_ID,
+        chat_id=ERROR_LOG_CHAT_ID,
         text=f"""Update:
 {update}
 
