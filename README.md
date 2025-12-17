@@ -8,7 +8,7 @@ I often use this structure when building web-powered Telegram bots. After reusin
 ---
 ## Features
 
-- **Error Reporting**: Reports Telegram bot exceptions to the developer as a direct message.
+- **Error Reporting**: Sends runtime exceptions as direct messages to a specified chat, group, or channel using `ERROR_LOG_CHAT_ID`.
 - **Localization**: Support for multiple languages with a simple setup.
 - **Persistence**: Preconfigured to use Async Sqlalchemy 2.0 with SQLite.
 - **Webhook and Polling Modes**: Control the update mode via environment variables:
