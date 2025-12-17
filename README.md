@@ -10,8 +10,14 @@ I often use this structure when building web-powered Telegram bots. After reusin
 
 - **Error Reporting**: Reports Telegram bot exceptions to the developer as a direct message.
 - **Localization**: Support for multiple languages with a simple setup.
-- **Persistence**: Preconfigured to use a Sqlalchemy 2.0.
-- **Webhook and Polling Modes**: Easily switch between polling and webhook modes by editing the `MODE` constant in `config/config.py`.
+- **Persistence**: Preconfigured to use Async Sqlalchemy 2.0 with SQLite.
+- **Webhook and Polling Modes**: Control the update mode via environment variables:
+  - Set both `SECRET_TOKEN` and `WEBHOOK_URL` to enable webhook mode
+  - If either is unset, the bot falls back to polling
+- **Telegram Test Server Support**: Switch between Telegram production and test servers via environment variables:
+  - Set `USE_TEST_SERVER=yes` and `TEST_SERVER_BOT_TOKEN` to use the test server
+  - If `USE_TEST_SERVER` is not set, the bot uses the production server
+  - **Note:** `TEST_SERVER_BOT_TOKEN` is required if `USE_TEST_SERVER=yes`
 
 ---
 
