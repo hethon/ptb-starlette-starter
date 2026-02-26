@@ -6,17 +6,17 @@ from dotenv import load_dotenv
 load_dotenv()
 
 
-class Mode(Enum):
+class UpdateMode(Enum):
     POLLING = 1
     WEBHOOK = 2
 
 
-MODE = Mode.WEBHOOK
+MODE = UpdateMode.WEBHOOK
 try:
     SECRET_TOKEN = os.environ["SECRET_TOKEN"]
     WEBHOOK_URL = os.environ["WEBHOOK_URL"]
 except KeyError:
-    MODE = Mode.POLLING
+    MODE = UpdateMode.POLLING
 
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
