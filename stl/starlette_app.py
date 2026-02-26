@@ -46,7 +46,7 @@ starlette_app = Starlette(
     ],
     lifespan=(
         lifespan_webhook
-        if config.UpdateMode.WEBHOOK == config.MODE
+        if config.UpdateMode.WEBHOOK == config.update_mode
         else lifespan_polling
     ),
 )

@@ -10,14 +10,16 @@ class UpdateMode(Enum):
     POLLING = 1
     WEBHOOK = 2
 
+    @classmethod
+    def from_env(cls) -> "UpdateMode":
+        if "SECRET_TOKEN" in os.environ and "WEBHOOK_URL" in os.environ:
+            return cls.WEBHOOK
+        return cls.POLLING
 
-MODE = UpdateMode.WEBHOOK
-try:
-    SECRET_TOKEN = os.environ["SECRET_TOKEN"]
-    WEBHOOK_URL = os.environ["WEBHOOK_URL"]
-except KeyError:
-    MODE = UpdateMode.POLLING
 
+update_mode = UpdateMode.from_env()
+SECRET_TOKEN = os.environ.get("SECRET_TOKEN")
+WEBHOOK_URL = os.environ.get("WEBHOOK_URL")
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
 USE_TEST_SERVER = os.environ.get("USE_TEST_SERVER") == "yes"
