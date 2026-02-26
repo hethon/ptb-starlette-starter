@@ -26,7 +26,7 @@ tg_app_builder = (
     .rate_limiter(AIORateLimiter(max_retries=2))
 )
 
-if config.Mode.webhook == config.MODE:
+if config.Mode.WEBHOOK == config.MODE:
     # Here we set updater to None because we want our custom webhook server to handle the updates
     # and hence we don't need an Updater instance
     tg_app_builder = tg_app_builder.updater(None)

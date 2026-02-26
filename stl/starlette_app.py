@@ -45,6 +45,6 @@ starlette_app = Starlette(
         Route("/submitpayload", custom_updates, methods=["POST", "GET"]),
     ],
     lifespan=(
-        lifespan_webhook if config.Mode.webhook == config.MODE else lifespan_polling
+        lifespan_webhook if config.Mode.WEBHOOK == config.MODE else lifespan_polling
     ),
 )

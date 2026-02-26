@@ -7,16 +7,16 @@ load_dotenv()
 
 
 class Mode(str, Enum):
-    polling = 1
-    webhook = 2
+    POLLING = 1
+    WEBHOOK = 2
 
 
-MODE = Mode.webhook
+MODE = Mode.WEBHOOK
 try:
     SECRET_TOKEN = os.environ["SECRET_TOKEN"]
     WEBHOOK_URL = os.environ["WEBHOOK_URL"]
 except KeyError:
-    MODE = Mode.polling
+    MODE = Mode.POLLING
 
 
 BOT_TOKEN = os.environ["BOT_TOKEN"]
