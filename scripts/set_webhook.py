@@ -11,8 +11,8 @@ load_dotenv()
 
 async def set_webhook() -> bool:
     """Pass webhook settings to telegram"""
-    if not config.WEBHOOK_URL:
-        raise Exception("WEBHOOK_URL is not set.")  # noqa: TRY002
+    if not (config.WEBHOOK_URL and config.SECRET_TOKEN):
+        raise Exception("WEBHOOK_URL or SECRET_TOKEN not set.")  # noqa: TRY002
 
     return await tg_app.bot.set_webhook(
         url=config.WEBHOOK_URL,
